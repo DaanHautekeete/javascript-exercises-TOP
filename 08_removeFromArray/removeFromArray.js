@@ -1,18 +1,19 @@
-const removeFromArray = function(arr, itemToRemove) {
-    //index ophalen van item
-    let index = arr.indexOf(itemToRemove);
-    console.log(index);
+const removeFromArray = function(arr, ...args) {
+    //nieuwe array aanmaken
+    let newArray = [];
 
-    arr.splice(index, 1);
+    arr.forEach((item) => {
+        //controleren of item in args niet in arr zit
+        if(!args.includes(item)) {newArray.push(item);};
+        console.log(newArray);
+        
+    });
 
-    console.log(arr);
-    return arr;
+    return newArray;
 
 };
 
-let array = [1, 2, 3, 4]
-removeFromArray(array, 3);
-
+removeFromArray(["hey", 2, 3, "ho"], "hey", 3);
 
 // Do not edit below this line
 module.exports = removeFromArray;
